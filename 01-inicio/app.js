@@ -1,6 +1,4 @@
-angular.module("appMain",[]);
-
-angular.module("appMain")
+angular.module("appMain",[])
 .controller("AppController",['$scope', function($scope){
 
     $scope.user = {
