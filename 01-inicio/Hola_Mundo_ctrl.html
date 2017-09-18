@@ -5,7 +5,7 @@
         <title>Hola Mundo Controller</title>
         <meta name="description" content="Curso de AngularJS">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <script src="../lib/angular.js"></script>
+        <script src="../node_modules/angular/angular.js"></script>
         <script src="./app.js"></script>
     </head>
     <body ng-app="appMain" ng-controller="AppController">
@@ -15,7 +15,7 @@
                 <input id='inputName'type="text" ng-model="user.name"></input>
             </p>
             <p>
-                <button ng-click="borrar()">Borrar</button>
+                <button ng-click="borrar()">Borrar todo</button>
             </p>
         </form>
         <p>Bienvenido al curso de {{curso}}</p>
