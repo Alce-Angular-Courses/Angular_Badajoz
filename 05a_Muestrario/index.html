@@ -18,33 +18,35 @@
 	<link rel="icon" href="fav_icon.png">
 	<script src="../node_modules/angular/angular.min.js"></script>
 	<script src="js/appModule.js"></script>
+	<script src="js/appControlller.js"></script>
 </head>
 
-<body ng-app = "appModule" ng-controller= "AppController">
+<body ng-app = "appModule" ng-controller= "AppController as $ctrl">
 	<header>
-		<h1 ng-bind="titulo"></h1>
+		<h1 ng-bind="$ctrl.titulo"></h1>
 	</header>
 	<article>
 		<p class="big">Ratones inalambricos disponibles en los siguientes colores</p>
 
 		<img src="images/mouse.jpg">
 		<input type="button"  id="btnColores" value=
-		 	"{{isHidden ? 'Mostrar Colores Disponibles' : 'Ocultar Colores Disponibles'}}"
-			ng-cloak ng-click="btnColores()">
+		 	"{{$ctrl.isHidden ? 'Mostrar Colores Disponibles' : 'Ocultar Colores Disponibles'}}"
+			ng-cloak ng-click="$ctrl.btnColores()">
 
 		<!-- Alternativa usando button en lugar de input
-		<button type="button" id="btnColores" ng-click="btnColores()" >
-			{{isHidden ? 'Mostrar Colores Disponibles' : 'Ocultar Colores Disponibles'}}
+		<button type="button" id="btnColores" ng-click="$ctrl.btnColores()" >
+			{{$ctrl.isHidden ? 'Mostrar Colores Disponibles' : 'Ocultar Colores Disponibles'}}
 		</button>
 		-->
-
-		<div class="colores" id="red" ng-hide="isHidden">Rojo</div>
-		<div class="colores" id="green" ng-hide="isHidden">Verde</div>
-		<div class="colores" id="blue" ng-hide="isHidden">Azul</div>
-		<div class="colores" id="purple"ng-hide="isHidden">Morado</div>
-		<div class="colores" id="gray" ng-hide="isHidden">Gris oscuro</div>
-		<div class="colores" id="olive" ng-hide="isHidden">Verde oliva</div>
+		<div id = "colores" ng-hide="$ctrl.isHidden">
+			<div class="colores" id="red">Rojo</div>
+			<div class="colores" id="green">Verde</div>
+			<div class="colores" id="blue">Azul</div>
+			<div class="colores" id="purple">Morado</div>
+			<div class="colores" id="gray">Gris oscuro</div>
+			<div class="colores" id="olive">Verde oliva</div>	
+		</div>
 	</article>
-	<footer ng-include="'../common/_footer.html'"></footer>
+	<ng-include src=" '../common/_footer.html' "></ng-include>
 </body>
 </html>

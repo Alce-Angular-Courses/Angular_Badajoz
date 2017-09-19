@@ -19,9 +19,10 @@
 	<script src="../node_modules/angular/angular.js"></script>
 	<script src="../node_modules/angular-i18n/angular-locale_es-es.js"></script>
 	<script src="js/appModule.js"></script>
+	<script src="js/appControlller.js"></script>
 </head>
 
-<body ng-app = "appModule" ng-controller= "AppController">
+<body ng-app = "appModule" ng-controller= "AppController as $ctrl">
 	<header>
 		<h1>Muestrario</h1>
 	</header>
@@ -29,28 +30,30 @@
 		<p class="big">Ratones inalambricos disponibles en varios colores</p>
 		<p>Para verlos, coloca el cursor sobre la imagen</p>
 
-		<div ng-mouseenter="verColores(true)" ng-mouseleave="verColores(false)">
+		<div ng-mouseenter="$ctrl.verColores(true)" ng-mouseleave="$ctrl.verColores(false)">
 			<img src="images/mouse.jpg" >
 			
 			<!-- Se eleimina el botón que existía anteriormente
 			<input type="button"  id="btnColores" value=
-			 	"{{isHidden ? 'Mostrar Colores Disponibles' : 'Ocultar Colores Disponibles'}}"
-				ng-cloak ng-click="btnColores()">
+			 	"{{$ctrl.isHidden ? 'Mostrar Colores Disponibles' : 'Ocultar Colores Disponibles'}}"
+				ng-cloak ng-click="$ctrl.btnColores()">
 
 			Alternativa usando button en lugar de input
-			<button type="button" id="btnColores" ng-click="btnColores()" >
-				{{isHidden ? 'Mostrar Colores Disponibles' : 'Ocultar Colores Disponibles'}}
+			<button type="button" id="btnColores" ng-click="$ctrl.btnColores()" >
+				{{$ctrl.isHidden ? 'Mostrar Colores Disponibles' : 'Ocultar Colores Disponibles'}}
 			</button>
 			-->
 
-			<div class="colores" id="red" ng-show="isHidden">Rojo</div>
-			<div class="colores" id="green" ng-show="isHidden">Verde</div>
-			<div class="colores" id="blue" ng-show="isHidden">Azul</div>
-			<div class="colores" id="purple"ng-show="isHidden">Morado</div>
-			<div class="colores" id="gray" ng-show="isHidden">Gris oscuro</div>
-			<div class="colores" id="olive" ng-show="isHidden">Verde oliva</div>
+			<div id = "colores" ng-hide="$ctrl.isHidden">
+				<div class="colores" id="red">Rojo</div>
+				<div class="colores" id="green">Verde</div>
+				<div class="colores" id="blue">Azul</div>
+				<div class="colores" id="purple">Morado</div>
+				<div class="colores" id="gray">Gris oscuro</div>
+				<div class="colores" id="olive">Verde oliva</div>	
+			</div>
 		</div>
 	</article>
-	<footer ng-include="'../common/_footer.html'"></footer>
+	<ng-include src=" '../common/_footer.html' "></ng-include>
 </body>
 </html>
