@@ -11,7 +11,6 @@ if (true) {
 	Oferta: 
 	El precio final es ${precioFinal}`)
 }
-
  
 //console.log (precioFinal)
 });
